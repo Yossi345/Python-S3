@@ -1,4 +1,4 @@
-pip install boto3
+#pip install boto3
 
 import boto3
 
@@ -41,8 +41,10 @@ def copy_to_bucket(bucket_from_name, bucket_to_name, file_name):
         'Key': file_name
     }
     s3_resource.Object(bucket_to_name, file_name).copy(copy_source)
-    # Enable versioning for the bucket using the BucketVersioning class
+
+ 
 def enable_bucket_versioning(bucket_name):
+    # Enable versioning for the bucket using the BucketVersioning class
     bkt_versioning = s3_resource.BucketVersioning(bucket_name)
     bkt_versioning.enable()
     print(bkt_versioning.status)
